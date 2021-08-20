@@ -1,0 +1,8 @@
+module GraphCore
+{
+	interface GraphCoreTest
+	{
+		string putValues(in string country, in string capital);
+		string getCapital(in string country);
+	};
+};
