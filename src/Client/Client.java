@@ -25,19 +25,26 @@ public class Client {
 			
 			scan = new Scanner(System.in);
 			String line = scan.nextLine();
-			String[] parts = line.split(" ");
+			
+			String str= line;
+			String[] parts = str.split("[[ ]*|[//.]]");
+			for(int i=0;i<parts.length-1;i++) {
+			//System.out.print(parts[i]+" string testing "+parts.length);
+			}
 			String country = parts[0];
 			
-			/*String capital = parts[1];			
+			if(parts.length==2) {
+			String capital = parts[1];			
 			String data=graphCoreTest.putValues(country,capital);
-			System.out.println(data);
-			*/
-			
+			if(!data.equals("Done")) {
+			System.out.println("Something When Wrong");
+			}
+			}
 			String data2=graphCoreTest.getCapital(country);
 			if(data2.equals("not found")) {
 				System.out.println("error: not found");
 			}
-			else System.out.println(data2);
+			else System.out.println();
 			
 			
 		}
