@@ -28,23 +28,28 @@ public class Client {
 			
 			String str= line;
 			String[] parts = str.split("[[ ]*|[//.]]");
-			for(int i=0;i<parts.length-1;i++) {
+			/*for(int i=0;i<parts.length-1;i++) {
 			//System.out.print(parts[i]+" string testing "+parts.length);
-			}
-			String country = parts[0];
+			}*/
+			String methods = parts[0];
+			String country = parts[1];
 			
-			if(parts.length==2) {
-			String capital = parts[1];			
-			String data=graphCoreTest.putValues(country,capital);
-			if(!data.equals("Done")) {
-			System.out.println("Something When Wrong");
+			if(parts[0].equals("set")) {
+				String capital = parts[2];			
+				String data=graphCoreTest.putValues(country,capital);
 			}
+				/*if(!data.equals("Done")) {
+				System.out.println("Something When Wrong");
+				}
+				 */
+			else if(parts[0].equals("get")) {
+			
+				String data2=graphCoreTest.getCapital(country);
+				if(data2.equals("not found")) {
+					System.out.println("error: not found");
+				}
+				else System.out.println(data2);
 			}
-			String data2=graphCoreTest.getCapital(country);
-			if(data2.equals("not found")) {
-				System.out.println("error: not found");
-			}
-			else System.out.println();
 			
 			
 		}
