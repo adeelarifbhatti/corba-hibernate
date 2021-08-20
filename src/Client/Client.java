@@ -30,13 +30,14 @@ public class Client {
 			
 			/*String capital = parts[1];			
 			String data=graphCoreTest.putValues(country,capital);
-			System.out.println(data);*/
+			System.out.println(data);
+			*/
 			
 			String data2=graphCoreTest.getCapital(country);
-			if(data2==null) {
+			if(data2.equals("not found")) {
 				System.out.println("error: not found");
 			}
-			else System.out.println("gotten the capital "+data2);
+			else System.out.println(data2);
 			
 			
 		}

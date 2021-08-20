@@ -23,6 +23,7 @@ public class Servant extends GraphCoreTestPOA {
 		//System.out.println("returning the Capital" +outPut);
 		return outPut;
 		}
-		else return null;
+		String result="not found";
+		return result;
 	}
 }
