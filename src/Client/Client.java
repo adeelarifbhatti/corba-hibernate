@@ -1,9 +1,6 @@
 package Client;
 
 import java.util.Scanner;
-import java.util.ArrayList;
-import java.util.List;
-
 import org.omg.CORBA.ORB;
 import org.omg.CosNaming.NamingContextExt;
 import org.omg.CosNaming.NamingContextExtHelper;
@@ -20,7 +17,6 @@ public class Client {
 			org.omg.CORBA.Object objRef = orb.resolve_initial_references("NameService");
 			NamingContextExt ncRef = NamingContextExtHelper.narrow(objRef);
 			GraphCoreTest graphCoreTest = GraphCoreTestHelper.narrow(ncRef.resolve_str("GraphCore"));
-			System.out.println("From Client > Country ?");
 			
 			
 			scan = new Scanner(System.in);
