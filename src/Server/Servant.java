@@ -21,7 +21,7 @@ public class Servant extends GraphCoreTestPOA {
 		String outPut;
 		if(cC.containsKey(country)) {
 		outPut=cC.get(country).capital;
-		System.out.println("returning the Capital" +outPut);
+		//System.out.println("returning the Capital" +outPut);
 		return outPut;
 		}
 		String result="not found";
