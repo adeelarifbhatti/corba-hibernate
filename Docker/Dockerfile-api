@@ -1,0 +1,6 @@
+FROM tomcat:8.5.47-jdk8-openjdk
+LABEL maintainer="adeelarifbhatti@gmail.com"
+COPY GraphCoreApi.war /usr/local/tomcat/webapps/
+EXPOSE 8080
+CMD ["catalina.sh", "run"]
+
