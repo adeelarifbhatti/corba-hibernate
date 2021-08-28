@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-configuration PUBLIC "-//Hibernate/Hibernate Configuration DTD//EN" "http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
+  
+<hibernate-configuration>  
+  
+    <session-factory>  
+        <property name="hibernate.dialect">org.hibernate.dialect.MySQLDialect </property>
+        <property name="hbm2ddl.auto">update</property>  
+        <property name="connection.driver_class">com.mysql.jdbc.Driver</property>
+        <property name="connection.url">jdbc:mysql://backend:3306/dataset</property>  
+        <property name="connection.username">username</property>  
+        <property name="connection.password">password</property>  
+    <mapping resource="DataSetModel.hbm.xml"/>  
+    </session-factory>  
+  
+</hibernate-configuration>  

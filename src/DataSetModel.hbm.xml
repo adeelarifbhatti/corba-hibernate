@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-configuration PUBLIC "-//Hibernate/Hibernate Configuration DTD//EN" "http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
+  
+ <hibernate-mapping>  
+  <class name="Model.DataSetModel" table="datasetmodel">  
+
+    <property name="country"> </property>  
+    <property name="capital"> </property>  
+            
+  </class>  
+ </hibernate-mapping>
