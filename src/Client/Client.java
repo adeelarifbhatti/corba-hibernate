@@ -27,11 +27,12 @@ public class Client {
 			/*for(int i=0;i<parts.length-1;i++) {
 			//System.out.print(parts[i]+" string testing "+parts.length);
 			}*/
-			String country = parts[1];
+			int id = Integer.valueOf(parts[1]);
+			String country = parts[2];
 			
 			if(parts[0].equals("set")) {
-				String capital = parts[2];			
-				String data=graphCoreTest.putValues(country,capital);
+				String capital = parts[3];			
+				String data=graphCoreTest.putValues(id,country,capital);
 				if(!data.equals("Done")) {
 					System.out.println("Something When Wrong");
 					}

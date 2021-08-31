@@ -2,12 +2,13 @@ module GraphCore
 {
 	valuetype DataSet
 	{
+		public long id;
 		public string country;
 		public string capital;
 	};
 	interface GraphCoreTest
 	{
-		string putValues(in string country, in string capital);
+		string putValues(in long id, in string country, in string capital);
 		string getCapital(in string country);
 	};
 };

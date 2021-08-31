@@ -16,11 +16,11 @@ import Model.DataSetModel;
 
 public class Servant extends GraphCoreTestPOA {
 	private HashMap<String, DataSetModel> cC = new HashMap<>();
-
+	
 	@Override
-	public String putValues(String country, String capital) {
+	public String putValues(int id,String country, String capital) {
 		String done="Done";
-		DataSetModel dataSetModel =new DataSetModel(country,capital);
+		DataSetModel dataSetModel =new DataSetModel(id,country,capital);
 		cC.put(country, dataSetModel);
 		
         StandardServiceRegistry ssr = new StandardServiceRegistryBuilder().configure("hibernate.cfg.xml").build();  

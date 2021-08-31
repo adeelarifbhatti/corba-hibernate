@@ -10,9 +10,10 @@ public class DataSetModel extends DataSet{
 	public DataSetModel() {
 		
 	}
-	public DataSetModel(String country, String capital) {
+	public DataSetModel(int id, String country, String capital) {
 		this.country=country;
-		this.capital=capital;		
+		this.capital=capital;	
+		this.id= id;
 		
 	}
 
