@@ -1,4 +1,4 @@
-package Server;
+package com.CorbaHibernate.Server;
 
 import org.omg.CORBA.ORB;
 import org.omg.CosNaming.NameComponent;
@@ -7,8 +7,8 @@ import org.omg.CosNaming.NamingContextExtHelper;
 import org.omg.PortableServer.POA;
 import org.omg.PortableServer.POAHelper;
 
-import GraphCore.GraphCoreTest;
-import GraphCore.GraphCoreTestHelper;
+import com.CorbaHibernate.CountryCapital.CountryCapitalTest;
+import com.CorbaHibernate.CountryCapital.CountryCapitalTestHelper;
 
 public class Server {
 	public static void main(String[] args) {
@@ -18,11 +18,11 @@ public class Server {
 			rootpoa.the_POAManager().activate();
 		    Servant servant = new Servant();
 			 org.omg.CORBA.Object ref = rootpoa.servant_to_reference(servant); 
-			 GraphCoreTest href=GraphCoreTestHelper.narrow(ref);
+			 CountryCapitalTest href=CountryCapitalTestHelper.narrow(ref);
 			 org.omg.CORBA.Object objRef = orb.resolve_initial_references("NameService");
 			 
 			 NamingContextExt ncRef = NamingContextExtHelper.narrow(objRef);			 
-			 String name ="GraphCore";
+			 String name ="CountryCapital";
 			 NameComponent path[] = ncRef.to_name(name);
 			 ncRef.rebind(path, href);
 		     orb.run();

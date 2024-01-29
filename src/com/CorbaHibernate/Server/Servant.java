@@ -1,4 +1,4 @@
-package Server;
+package com.CorbaHibernate.Server;
 
 import java.util.HashMap;
 // for hibernate
@@ -8,13 +8,12 @@ import org.hibernate.Transaction;
 import org.hibernate.boot.Metadata;  
 import org.hibernate.boot.MetadataSources;  
 import org.hibernate.boot.registry.StandardServiceRegistry;  
-import org.hibernate.boot.registry.StandardServiceRegistryBuilder;  
+import org.hibernate.boot.registry.StandardServiceRegistryBuilder;
 
+import com.CorbaHibernate.CountryCapital.CountryCapitalTestPOA;
+import com.CorbaHibernate.Model.DataSetModel;
 
-import GraphCore.GraphCoreTestPOA;
-import Model.DataSetModel;
-
-public class Servant extends GraphCoreTestPOA {
+public class Servant extends CountryCapitalTestPOA {
 	private HashMap<String, DataSetModel> cC = new HashMap<>();
 	
 	@Override
@@ -40,11 +39,10 @@ public class Servant extends GraphCoreTestPOA {
 
 	@Override
 	public String getCapital(String country) {
-		String outPut;
+		String answer;
+		int id;
 		if(cC.containsKey(country)) {
-		outPut=cC.get(country).capital;
-		//System.out.println("returning the Capital" +outPut);
-		return outPut;
+		return "ID is "+cC.get(country).getId()+ " Capital is "+cC.get(country).getCapital();
 		}
 		String result="not found";
 		return result;

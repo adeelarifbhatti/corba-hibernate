@@ -1,4 +1,4 @@
-module GraphCore
+module CountryCapital
 {
 	valuetype DataSet
 	{
@@ -6,7 +6,7 @@ module GraphCore
 		public string country;
 		public string capital;
 	};
-	interface GraphCoreTest
+	interface CountryCapitalTest
 	{
 		string putValues(in long id, in string country, in string capital);
 		string getCapital(in string country);
