@@ -1,0 +1,10 @@
+FROM ubuntu:latest
+LABEL maintainer="adeelarifbhatti@gmail.com"
+WORKDIR /app
+RUN apt-get update && apt-get install -y openjdk-8-jdk  maven
+COPY src src
+COPY pom-client.xml pom-client.xml 
+COPY start-client.sh ./
+RUN chmod +x ./start-client.sh
+RUN mvn -f pom-client.xml clean package
+ENTRYPOINT ["sh","-c","./start-client.sh && sleep infinity"]

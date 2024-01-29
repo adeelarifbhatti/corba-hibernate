@@ -1,0 +1,84 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>com</groupId>
+  <version>0.0.1-SNAPSHOT</version>
+  <name>corbahibernate</name>
+  <build>
+    <sourceDirectory>src</sourceDirectory>
+    <resources>
+      <resource>
+        <directory>src</directory>
+        <excludes>
+          <exclude>**/*.java</exclude>
+        </excludes>
+      </resource>
+    </resources>
+    <plugins>
+      <plugin>
+        <artifactId>maven-compiler-plugin</artifactId>
+        <version>3.7.0</version>
+        <configuration>
+          <source>1.8</source>
+          <target>1.8</target>
+        </configuration>
+      </plugin>
+      <!--  creating the jar with dependencies included in the jar file -->
+      <plugin>
+        <artifactId>maven-assembly-plugin</artifactId>
+        <version>3.6.0</version>
+        <configuration>
+        <!-- main class name-->
+          <archive>
+            <manifest>
+              <addClasspath>true</addClasspath>
+              <mainClass>com.CorbaHibernate.Server.Server</mainClass>
+            </manifest>
+          </archive>
+          <!-- main class name -->
+          <descriptorRefs>
+            <descriptorRef>jar-with-dependencies</descriptorRef>
+          </descriptorRefs>
+        </configuration>
+        <executions>
+          <execution>
+            <id>make-assembly</id> <!-- this is used for inheritance merges -->
+            <phase>package</phase> <!-- bind to the packaging phase -->
+            <goals>
+              <goal>single</goal>
+            </goals>
+          </execution>
+        </executions>
+      </plugin>
+      <!--              jar file with dependencies              -->
+    </plugins>
+  </build>
+  <dependencies>
+  	<dependency>
+  		<groupId>org.hibernate</groupId>
+  		<artifactId>hibernate-core</artifactId>
+  		<version>5.5.4.Final</version>
+  	</dependency>
+  	<!-- https://mvnrepository.com/artifact/mysql/mysql-connector-java -->
+	<dependency>
+	    <groupId>mysql</groupId>
+	    <artifactId>mysql-connector-java</artifactId>
+	    <version>8.0.28</version>
+	</dependency>
+  <!-- https://mvnrepository.com/artifact/org.glassfish.corba/glassfish-corba-orb -->
+<dependency>
+    <groupId>org.glassfish.corba</groupId>
+    <artifactId>glassfish-corba-orb</artifactId>
+    <version>4.2.4</version>
+</dependency>
+<!-- https://mvnrepository.com/artifact/com.sun.corba/glassfish-corba-orbgeneric -->
+<!-- https://mvnrepository.com/artifact/com.sun.corba/glassfish-corba-orb -->
+<dependency>
+    <groupId>com.sun.corba</groupId>
+    <artifactId>glassfish-corba-orb</artifactId>
+    <version>3.2.0-b005</version>
+</dependency>
+
+
+  </dependencies>
+  <artifactId>CorbaHibernate</artifactId>
+</project>

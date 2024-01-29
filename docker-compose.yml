@@ -1,0 +1,41 @@
+version: "2.0"
+services:
+ server:
+  build:
+    context: .
+    dockerfile: Dockerfile
+  container_name: server
+  links:
+      - backend
+  depends_on:
+      - backend
+  stdin_open: true # docker run -i
+  tty: true
+  ports:
+      - '900:900'
+ client:
+    build:
+      context: .
+      dockerfile: Dockerfile-client
+    links:
+      - server
+    depends_on:
+      - server
+    stdin_open: true # docker run -i
+    tty: true
+ backend:
+   image: mysql:5.7
+   restart: always
+   environment:
+     MYSQL_DATABASE: 'dataset'
+      # So you don't have to use root, but you can if you like
+     MYSQL_USER: 'username'
+      # You can use whatever password you like
+     MYSQL_PASSWORD: 'password'
+      # Password for root access
+     MYSQL_ROOT_PASSWORD: 'password'
+   volumes:
+    - ./init-script.sql:/docker-entrypoint-initdb.d/init-script.sql
+   ports:
+      - '3306:3306'
+
